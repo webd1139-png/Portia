@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Code, Terminal, ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { BIO } from "@/data";
 import { Button } from "@/components/ui/button";
 
@@ -13,14 +13,6 @@ const variants = {
     show: {
       opacity: 1,
       transition: { duration: 0.8, staggerChildren: 0.2 },
-    },
-  },
-  item: {
-    hidden: { opacity: 0, y: 30 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
     },
   },
 };
