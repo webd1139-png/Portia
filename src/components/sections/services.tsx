@@ -7,12 +7,14 @@ import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/c
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
+import { Globe, Brain, Search, Palette, Layers } from "lucide-react";
+
 const SERVICE_ICONS: Record<string, React.ElementType> = {
-  "website-development": () => null,
-  "ai-solutions": () => null,
-  "seo-digital-visibility": () => null,
-  "digital-design": () => null,
-  "custom-software": () => null,
+  "website-development": Globe,
+  "ai-solutions": Brain,
+  "seo-digital-visibility": Search,
+  "digital-design": Palette,
+  "custom-software": Layers,
 };
 
 export default function Services() {
@@ -36,7 +38,9 @@ export default function Services() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {SERVICES.map((service) => (
+          {SERVICES.map((service) => {
+            const IconComponent = SERVICE_ICONS[service.id];
+            return (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 40 }}
@@ -45,17 +49,13 @@ export default function Services() {
               transition={{ duration: 0.6, delay: 0.1 * SERVICES.indexOf(service) }}
               className="group"
             >
-              <Card padded hoverable className="h-full">
+              <Card padded hoverable className="h-full hover-lift-luxury">
                 <CardContent className="pt-0 pb-8">
-                  <div className="w-12 h-12 rounded-xl bg-surface p-3 mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <span className="text-primary group-hover:text-white">
-                      {service.color === "text-primary" ? "💻" : service.color === "text-cyan" ? "🤖" : "🎨"}
-                    </span>
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-cyan flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                    <IconComponent className="w-7 h-7 text-white" />
                   </div>
                   <CardTitle className="mb-3">{service.title}</CardTitle>
-                  <CardDescription>
-                    {service.shortDescription}
-                  </CardDescription>
+                  <CardDescription className="mb-6">{service.shortDescription}</CardDescription>
                 </CardContent>
                 <div className="space-y-3 pt-6">
                   {service.items.map((item, idx) => (
@@ -63,7 +63,7 @@ export default function Services() {
                       key={idx}
                       className="flex items-start gap-2 text-sm text-muted"
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan shrink-0 mt-2" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" />
                       <span>{item}</span>
                     </div>
                   ))}
@@ -76,7 +76,7 @@ export default function Services() {
                 </Link>
               </Card>
             </motion.div>
-          ))}
+          )}
         </div>
       </Container>
     </Section>

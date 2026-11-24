@@ -12,10 +12,19 @@ const LEVEL_LABELS: Record<string, string> = {
   exploring: "Exploring",
 };
 
+import { Code2, Layers, Laptop, Brain } from "lucide-react";
+
 const LEVEL_COLORS: Record<string, string> = {
-  comfortable: "bg-primary/10 text-primary border-primary/20",
-  developing: "bg-cyan/10 text-cyan border-cyan/20",
-  exploring: "bg-muted/10 text-muted border-muted/20",
+  comfortable: "bg-primary/10 text-primary border-primary/20 shadow-sm shadow-primary/10",
+  developing: "bg-cyan/10 text-cyan border-cyan/20 shadow-sm shadow-cyan/10",
+  exploring: "bg-surface/40 text-muted border-border shadow-sm shadow-black/20",
+};
+
+const CATEGORY_ICONS: Record<string, React.ElementType> = {
+  frontend: Laptop,
+  backend: Layers,
+  tools: Code2,
+  ai: Brain,
 };
 
 export default function Skills() {
@@ -54,6 +63,7 @@ export default function Skills() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {Object.entries(byCategory).map(([category, skills]) => {
+            const IconComponent = CATEGORY_ICONS[category];
             const comfortable = skills.filter((s) => s.level === "comfortable");
             const developing = skills.filter((s) => s.level === "developing");
             const exploring = skills.filter((s) => s.level === "exploring");
@@ -67,9 +77,12 @@ export default function Skills() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="space-y-6"
               >
-                <h3 className="text-2xl font-bold text-white">
-                  {CATEGORY_LABELS[category]}
-                </h3>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+                    <IconComponent className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">{CATEGORY_LABELS[category]}</h3>
+                </div>
 
                 <div className="space-y-4">
                   {[
@@ -94,7 +107,7 @@ export default function Skills() {
                           <span
                             key={skill.name}
                             className={cn(
-                              "px-3 py-1.5 rounded-full text-xs font-medium border transition-colors",
+                              "px-3 py-1.5 rounded-full text-xs font-medium border transition-all hover:scale-105",
                               LEVEL_COLORS[group.level],
                             )}
                           >

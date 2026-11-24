@@ -6,7 +6,7 @@ import { Section, Container } from "@/components/ui/section";
 
 export default function Process() {
   return (
-    <Section id="process" padding="xl">
+    <Section id="process" padding="xl" className="bg-secondary">
       <Container maxWidth="xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -24,7 +24,7 @@ export default function Process() {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute inset-0 w-px bg-gradient-to-b from-transparent via-border to-transparent mx-auto" />
+          <div className="absolute inset-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent mx-auto" />
 
           <div className="grid md:grid-cols-4 gap-8 relative z-10">
             {BIO.processSteps.map((step, index) => (
@@ -34,12 +34,14 @@ export default function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="flex flex-col items-center gap-4"
+                whileHover={{ y: -8 }}
+                className="flex flex-col items-center gap-4 hover-lift-luxury"
               >
                 <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center text-primary text-xl font-mono font-bold shadow-lg shadow-primary/25">
+                  <div className="w-16 h-16 rounded-full border-2 border-gold bg-gradient-to-br from-primary to-cyan flex items-center justify-center text-white text-xl font-mono font-bold shadow-lg shadow-gold/25 hover:shadow-gold/40 transition-all duration-500 group-hover:scale-110">
                     {step.step}
                   </div>
+                  <div className="absolute inset-0 rounded-full border border-gold/30 blur-xl" />
                 </div>
                 <div className="text-center">
                   <h3 className="text-xl font-bold text-white">{step.title}</h3>

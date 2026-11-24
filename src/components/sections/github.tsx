@@ -89,8 +89,10 @@ export default function GitHubIntegration() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Github className="h-5 w-5 text-primary" />
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-cyan flex items-center justify-center shadow-lg shadow-primary/25">
+              <Github className="w-5 h-5 text-white" />
+            </div>
             <h2 className="text-4xl font-bold leading-tight text-white">
               GitHub Activity
             </h2>
@@ -133,7 +135,7 @@ export default function GitHubIntegration() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="p-6 rounded-xl border border-border bg-surface/50 backdrop-blur-sm"
+                className="p-6 rounded-xl border border-border bg-surface/50 backdrop-blur-sm hover-lift-luxury"
               >
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-white">

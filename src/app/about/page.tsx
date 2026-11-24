@@ -44,8 +44,10 @@ export default function AboutPage() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="relative group"
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-cyan rounded-2xl blur opacity-30" />
-                <div className="relative rounded-2xl border border-border bg-surface/80 backdrop-blur p-1">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-cyan rounded-2xl blur opacity-40 group-hover:opacity-60 transition duration-1000" />
+              <div className="relative z-10 portrait-frame">
+                <div className="portrait-frame-inner">
+                  <div className="portrait-glow" />
                   <Image
                     src={portraitUrl}
                     alt="Borngreat Opoku - Professional portrait"
@@ -55,7 +57,8 @@ export default function AboutPage() {
                     priority
                   />
                 </div>
-              </motion.div>
+              </div>
+            </motion.div>
             </div>
 
             <div className="lg:col-span-7 space-y-8">
@@ -85,7 +88,7 @@ export default function AboutPage() {
                   return (
                     <div
                       key={interest}
-                      className="p-6 rounded-xl border border-border bg-surface/50 backdrop-blur-sm hover-lift group"
+                      className="p-6 rounded-xl border border-border bg-surface/50 backdrop-blur-sm hover-lift-luxury group"
                     >
                       <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
                         <Icon className="h-5 w-5" />

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ArrowRight, Sparkles } from "lucide-react";
 import { BIO } from "@/data";
 import { Section, Container } from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
@@ -59,7 +59,7 @@ export default function Contact() {
   };
 
   return (
-    <Section id="contact" padding="xl">
+    <Section id="contact" padding="xl" className="bg-secondary">
       <Container maxWidth="7xl">
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
@@ -70,9 +70,14 @@ export default function Contact() {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white">
-                {BIO.contactHeading}
-              </h2>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight text-white">
+                  {BIO.contactHeading}
+                </h2>
+              </div>
               <p className="text-lg text-muted leading-relaxed max-w-xl">
                 {BIO.contactSubheading}
               </p>
@@ -106,9 +111,9 @@ export default function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="flex items-start gap-4 p-6 rounded-xl border border-border bg-surface/50 backdrop-blur-sm hover-lift"
+                    className="flex items-start gap-4 p-6 rounded-xl border border-border bg-surface/50 backdrop-blur-sm hover-lift-luxury"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-cyan flex items-center justify-center text-white shrink-0 shadow-lg shadow-primary/25">
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
@@ -132,7 +137,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="bg-surface/50 backdrop-blur-sm rounded-2xl border border-border p-8 lg:p-12">
+          <div className="border-gold rounded-2xl border border-border p-8 lg:p-12 hover-lift-luxury">
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -247,6 +252,7 @@ export default function Contact() {
                   <Button
                     type="submit"
                     size="lg"
+                    variant="gold"
                     disabled={isSubmitting}
                     className="w-full"
                   >
