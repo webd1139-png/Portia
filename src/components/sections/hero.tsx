@@ -30,9 +30,8 @@ export default function Hero() {
 
       <div className="relative z-10 w-full px-6">
         <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div
+          <motion.div
             className="lg:col-span-7 space-y-8"
-            motion="div"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -91,9 +90,8 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          <div
+          <motion.div
             className="lg:col-span-6 flex items-center justify-center"
-            motion="div"
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
@@ -125,7 +123,7 @@ export default function Hero() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
